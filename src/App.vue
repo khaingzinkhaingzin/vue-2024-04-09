@@ -1,6 +1,6 @@
 <template>
   <h1>Hi</h1>
-  <Modal :header="header" :content="content" theme="delete" />
+  <Modal :header="header" :content="content" :theme="theme" />
 </template>
 
 <script>
@@ -9,7 +9,8 @@ export default {
   data() {
     return {
       header: "Login Success",
-      content: "Welcome user KTZ"
+      content: "Welcome user KTZ",
+      theme: "success",
     }
   },
   components: {
