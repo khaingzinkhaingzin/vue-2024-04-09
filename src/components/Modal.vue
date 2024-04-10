@@ -1,15 +1,16 @@
 <template>
   <div class="backdrop">
-    <div class="modal">
-        <h1>Modal Header</h1>
-        <p>Modal Content</p>
+    <div class="modal" :class="{success: theme==='success', danger: theme==='delete'}">
+        <h1>{{ header }}</h1>
+        <p>{{ content }}</p>
+        {{ theme }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: ['header', 'content', 'theme']
 }
 </script>
 
@@ -27,5 +28,13 @@ export default {
         margin: 100px auto;
         background-color: white;
         border-radius: 10px;
+    }
+    .success {
+      background-color: green;
+      color: white;
+    }
+    .danger {
+      background-color: crimson;
+      color: white;
     }
 </style>

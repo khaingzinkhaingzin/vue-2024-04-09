@@ -1,6 +1,6 @@
 <template>
   <h1>Hi</h1>
-  <Modal />
+  <Modal :header="header" :content="content" theme="delete" />
 </template>
 
 <script>
@@ -8,7 +8,8 @@ import Modal from "./components/Modal.vue"
 export default {
   data() {
     return {
-      title: "You don't know JS"
+      header: "Login Success",
+      content: "Welcome user KTZ"
     }
   },
   components: {
