@@ -1,16 +1,22 @@
 <template>
   <h1>Hi</h1>
-  <div v-if="showModal">
+  <teleport to=".modal" v-if="showModal">
     <Modal :header="header" :content="content" :theme="theme" @close="showModal=false">
-      <h1>Login Success</h1>
-      <p>Welcome user ...</p>
+      <h1>{{ header }}</h1>
+      <p>{{ content }}</p>
       <template v-slot:links>
         <a href="">Sign up</a>
         <a href="">Sign in</a>
       </template>
     </Modal>
-  </div>
+  </teleport>
   <button @click="showModal=true">open modal</button>
+
+  <Modal theme="delete" v-if="showDeleteModal" @close="showDeleteModal=false">
+    <h1>Are you sure?</h1>
+    <p>You want to delete this content.</p>
+  </Modal>
+  <button @click="showDeleteModal=true">delete</button>
 </template>
 
 <script>
@@ -21,7 +27,8 @@ export default {
       header: "Login Success",
       content: "Welcome user KTZ",
       theme: "success",
-      showModal: false
+      showModal: false,
+      showDeleteModal: false,
     }
   },
   components: {
@@ -33,5 +40,8 @@ export default {
 <style scoped>
 h1 {
   color: blue;
+}
+button {
+  margin: 2px;
 }
 </style>
